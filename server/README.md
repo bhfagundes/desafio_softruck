@@ -16,7 +16,6 @@ Para realização do desafio foi utilizado o auxilio de alguns frameworks sendo 
   - [Supertest](https://github.com/visionmedia/supertest) -Utilizado para testar API's
   - [Eslint](https://www.npmjs.com/package/eslint) - Usado para garantir organização do código
 
-Node.js app architecture showcase using [Express](https://www.npmjs.com/package/express), [MongoDB](https://www.mongodb.com/) and [Mongoose](http://mongoosejs.com/) as ORM. The project has an  implementation of an authentication system that uses JSON Web Token to manage users' login data in Node.js web server. You can start your Node.js projects building on this boilerplate.
 
 # Descrição de arquitetura (inglês) #
 The app is designed to use a layered architecture. The architecture is heavily influenced by the Clean Architecture.[Clean Architecture](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html) is an architecture where:
@@ -63,7 +62,8 @@ This layer is being used in the express app and depends on the domain layer (ser
 
 ## Entry point ##
 
-The entry point for the applications is the server.js file. It does not depend on express.js or other node.js frameworks. It is responsible for instantiating the application layers, connecting to the db and  mounting the http server to the specified port.
+Localizado no arquivo server.js.
+
 
 # Iniciando o projeto #
 
@@ -81,7 +81,7 @@ para executar testes.
 
 # Endpoints  da API#
 
-## Autenticação##
+## Autenticação ##
   
 ### Registro ###
 
@@ -169,4 +169,33 @@ Body parametros:
 GET /project/:projectId
 ```
 
-**Descrição**: Retorna a descrição do projeto passado na url.
+```shell
+DELETE /project
+```
+
+Body parametros:
+```shell
+{ 
+  id, {String}
+ 
+}
+```
+**Descrição**: Remove o projeto de id especificado
+
+```shell
+PATCH /project
+```
+
+Body parametros:
+```shell
+{ 
+  id, {String}
+  name, {String}
+  status, {String}
+  department, {String} (optional)
+}
+```
+**Descrição**: Atualiza o projeto especificado.
+
+
+
