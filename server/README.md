@@ -18,7 +18,7 @@ Para realização do desafio foi utilizado o auxilio de alguns frameworks sendo 
 
 Node.js app architecture showcase using [Express](https://www.npmjs.com/package/express), [MongoDB](https://www.mongodb.com/) and [Mongoose](http://mongoosejs.com/) as ORM. The project has an  implementation of an authentication system that uses JSON Web Token to manage users' login data in Node.js web server. You can start your Node.js projects building on this boilerplate.
 
-# Architecture Overview #
+# Descrição de arquitetura (inglês) #
 The app is designed to use a layered architecture. The architecture is heavily influenced by the Clean Architecture.[Clean Architecture](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html) is an architecture where:
 
   1. **does not depend on the existence of some framework, database, external agency.**
@@ -65,44 +65,31 @@ This layer is being used in the express app and depends on the domain layer (ser
 
 The entry point for the applications is the server.js file. It does not depend on express.js or other node.js frameworks. It is responsible for instantiating the application layers, connecting to the db and  mounting the http server to the specified port.
 
-# Quick start #
+# Iniciando o projeto #
 
-### Prerequisites ###
+### Pré-requisito ###
 
-Create an .env file in project root to register the following required environment variables:
-  - `DATABASE_URL` - MongoDB connection URL
-
-### Use Docker: ###
-
-You can use Docker to start the app locally. The Dockerfile and the docker-compose.yml are already provided for you. For this option you must specify following var in the .env file:
-
-DATABASE_URL
-
-then run the following command:
-
-```shell
-docker-compose up
-```
-
-### Use the npm scripts: ###
+É necessário criar o arquivo .env semelhane ao arquivo exemplo .env.example
+Neste arquivo será setados informações relevantes
+###  Npm scripts: ###
 
 ```shell
 npm run test
 ```
-for running tests.
+para executar testes.
 
 
-# Endpoints #
+# Endpoints  da API#
 
-## Auth Routes ##
+## Autenticação##
   
-### Register ###
+### Registro ###
 
 ```shell
 POST /auth/register
 ```
 
-Body Params:
+Body Parametros:
 ```shell
 { 
   name,
@@ -112,8 +99,7 @@ Body Params:
   password
 }
 ```
-
-Description: creates a new user. Password is stored in bcrypt format.
+Descrição: Será criado um novo usuário e o password será salvo criptografado através do bcrypt.
 
 
 ### Login ###
@@ -122,7 +108,7 @@ Description: creates a new user. Password is stored in bcrypt format.
 POST /auth/login
 ```
 
-Body Params:
+Body Parametros:
 ```shell
 { 
   email,
@@ -130,7 +116,7 @@ Body Params:
 }
 ```
 
-**Description**: logs in to the server. Server will return a JWT token and user's info as:
+**Descrição**: Será retornado o token e algumas informações:
 
 ```js
 {
@@ -151,57 +137,36 @@ Body Params:
 }
 ```
 
-## Posts Routes ##
+## Project Routes ##
 
-In order to be able to retrieve posts list, user should send a Bearer token using Authorization header, otherwise server will answer with 401.
+Rotas para criar, editar, deletar e visualizar. (CRUD)
 
-### Posts List ###
+### Listagem de projetos ###
 
 ```shell
-GET /posts
+GET /project
 ```
 
-Query Params:
-```shell
-{ 
-  publisher, {String} (optional)
-}
-```
-**Description**: retrieves user's posts docs, based on his token and his id.
+
+**Descrição**: será retornada lista de tarefas para o usuário autenticado
 
 
 ```shell
-POST /posts
+POST /project
 ```
 
-Body Params:
+Body parametros:
 ```shell
 { 
-  imageUrl, {String}
-  publisher, {String}
-  description, {String} (optional)
+  name, {String}
+  status, {String}
+  department, {String} (optional)
 }
 ```
-**Description**: creates a new post doc in DB for user.
+**Descrição**: criação de um novo projeto para o usuário autenticado.
 
 ```shell
-GET /posts/:postId
+GET /project/:projectId
 ```
 
-**Description**: Gets specific user's post.
-
-# Packages and Tools #
-
-  - [Node.js](https://nodejs.org/en/)
-  - [Express](https://www.npmjs.com/package/express)
-  - [Mongoose](http://mongoosejs.com/)
-  - [Mongoose-Pagination](https://github.com/edwardhotchkiss/mongoose-paginate)
-  - [Express-jsend](https://www.npmjs.com/package/express-jsend)
-  - [Express-validator](https://github.com/ctavan/express-validator)
-  - [Bcrypt](https://github.com/dcodeIO/bcrypt.js)
-  - [Jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)
-  - [Mocha](https://www.npmjs.com/package/mocha)
-  - [Chai](https://www.npmjs.com/package/chai)
-  - [Sinon](https://www.npmjs.com/package/sinon)
-  - [Supertest](https://github.com/visionmedia/supertest)
-  - [Eslint](https://www.npmjs.com/package/eslint)
+**Descrição**: Retorna a descrição do projeto passado na url.
