@@ -1,6 +1,21 @@
-[![Build Status](https://api.travis-ci.org/eldimious/nodejs-api-showcase.svg?branch=master)](https://api.travis-ci.org/eldimious/nodejs-api-showcase)
 
-# What is this repository for? #
+# Pasta destinada ao desenvolvimento do backend do desafio! #
+Foi utilizado como linguagem NodeJs e banco de dados MongoDB, utilizando TDD para desenvolvimento
+Para realização do desafio foi utilizado o auxilio de alguns frameworks sendo eles:
+  - [Node.js](https://nodejs.org/en/) - Linguagem base utilizada de backend
+  - [Express](https://www.npmjs.com/package/express) - Framework node para auxiliar na criação de aplicação web
+  - [Mongoose](http://mongoosejs.com/) - Framework do mongoDB para auxiliar nas consultas de banco 
+  - [Mongoose-Pagination](https://github.com/edwardhotchkiss/mongoose-paginate) - Framework para auxiliar na paginaçãod de resultados
+  - [Express-jsend](https://www.npmjs.com/package/express-jsend) - Framework para auxiliar no envio de mensagens
+  - [Express-validator](https://github.com/ctavan/express-validator) - Framework utilizado para validar campos
+  - [Bcrypt](https://github.com/dcodeIO/bcrypt.js) - Framework usado para criptografar senha
+  - [Jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) - Framework usado para gerar um token visando facilitar o trafego
+  - [Mocha](https://www.npmjs.com/package/mocha) - Framework para auxiliar nos testes assincronos
+  - [Chai](https://www.npmjs.com/package/chai) - Framework para auxiliar no desenvolvimento utilizando TDD
+  - [Sinon](https://www.npmjs.com/package/sinon) - Framework para auxiliar nos testes
+  - [Supertest](https://github.com/visionmedia/supertest) -Utilizado para testar API's
+  - [Eslint](https://www.npmjs.com/package/eslint) - Usado para garantir organização do código
+
 Node.js app architecture showcase using [Express](https://www.npmjs.com/package/express), [MongoDB](https://www.mongodb.com/) and [Mongoose](http://mongoosejs.com/) as ORM. The project has an  implementation of an authentication system that uses JSON Web Token to manage users' login data in Node.js web server. You can start your Node.js projects building on this boilerplate.
 
 # Architecture Overview #
