@@ -79,7 +79,7 @@ npm run test
 para executar testes.
 
 
-# Endpoints  da API#
+# Endpoints  da API #
 
 ## Autenticação ##
   
