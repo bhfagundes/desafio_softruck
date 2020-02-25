@@ -11,6 +11,8 @@ class Register extends Component {
     super();
     this.state = {
       name: "",
+      surname: "",
+      username: "",
       email: "",
       password: "",
       errors: {}
@@ -42,6 +44,8 @@ class Register extends Component {
     const newUser = {
       name: this.state.name,
       email: this.state.email,
+      surname: this.state.surname,
+      username: this.state.surname,
       password: this.state.password
     };
 
@@ -69,7 +73,30 @@ class Register extends Component {
               <div className="auth-error">{errors.name}</div>
             </label>
           </div>
-
+          <div className="auth-group">
+            <label>
+              <div className="auth-label">Surname</div>
+              <input
+                onChange={this.onChange}
+                value={this.state.surname}
+                id="surname"
+                type="text"
+                className="auth-input"
+              />
+            </label>
+          </div>
+          <div className="auth-group">
+            <label>
+              <div className="auth-label">Username</div>
+              <input
+                onChange={this.onChange}
+                value={this.state.username}
+                id="username"
+                type="text"
+                className="auth-input"
+              />
+            </label>
+          </div>
           <div className="auth-group">
             <label>
               <div className="auth-label">Email address</div>
