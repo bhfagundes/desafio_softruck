@@ -4,10 +4,12 @@ import jwt_decode from "jwt-decode";
 
 import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./types";
 
+const URL = "http://127.0.0.1:8080";
+const URL_AUTH = "/auth";
 // Register User
 export const registerUser = (userData, history) => dispatch => {
   axios
-    .post("http://127.0.0.1:4000/api/users/register", userData)
+    .post(`${URL}${URL_AUTH}/register`, userData)
     .then(res => history.push("/"))
     .catch(err =>
       dispatch({
@@ -20,7 +22,7 @@ export const registerUser = (userData, history) => dispatch => {
 // Login - get user token
 export const loginUser = userData => dispatch => {
   axios
-    .post("http://127.0.0.1:8080/auth/login", userData)
+    .post(`${URL}${URL_AUTH}/login`, userData)
     .then(res => {
       // Save to localStorage
 

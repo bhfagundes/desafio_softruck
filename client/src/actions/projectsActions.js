@@ -9,11 +9,13 @@ import {
   GET_PROJECTS,
   PROJECTS_LOADING
 } from "./types";
+const URL = "http://127.0.0.1:8080";
+const URL_PROJECTS = "/project";
 
 // Create Project
 export const createProject = projectData => dispatch => {
   axios
-    .post("http://127.0.0.1:8080/project", projectData)
+    .post(`${URL}${URL_PROJECTS}`, projectData)
     .then(res =>
       dispatch({
         type: CREATE_PROJECT,
@@ -26,7 +28,7 @@ export const createProject = projectData => dispatch => {
 // Update Project
 export const updateProject = projectData => dispatch => {
   axios
-    .patch("http://127.0.0.1:8080/project", projectData)
+    .patch(`${URL}${URL_PROJECTS}`, projectData)
     .then(res =>
       dispatch({
         type: UPDATE_PROJECT,
@@ -39,7 +41,7 @@ export const updateProject = projectData => dispatch => {
 // Delete Project
 export const deleteProject = (id, history) => dispatch => {
   axios
-    .delete("http://127.0.0.1:8080/project", id)
+    .delete(`${URL}${URL_PROJECTS}`, id)
     .then(res =>
       dispatch({
         type: DELETE_PROJECT,
@@ -54,7 +56,7 @@ export const deleteProject = (id, history) => dispatch => {
 export const getProject = id => dispatch => {
   dispatch(setProjectLoading());
   axios
-    .get(`http://127.0.0.1:8080/project/${id}`)
+    .get(`${URL}${URL_PROJECTS}/${id}`)
     .then(res =>
       dispatch({
         type: GET_PROJECT,
@@ -73,7 +75,7 @@ export const getProject = id => dispatch => {
 export const getProjects = () => dispatch => {
   dispatch(setProjectsLoading());
   axios
-    .get("http://127.0.0.1:8080/project")
+    .get(`${URL}${URL_PROJECTS}`)
     .then(res =>
       dispatch({
         type: GET_PROJECTS,
